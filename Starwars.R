@@ -1,5 +1,5 @@
 # ============================================================
-# L&D CODE-ALONG: Data Science with Star Wars 🚀
+# L&D CODE-ALONG: Data Science with Star Wars ⭐
 # tidyverse edition — dplyr::starwars is built in, no download needed
 # ============================================================
 pacman::p_load(
@@ -9,7 +9,7 @@ pacman::p_load(
   )
 
 # ------------------------------------------------------------
-# 1. MEET THE DATA
+# 1. LOAD THE DATA
 # ------------------------------------------------------------
 starwars # displays the dataset in your console
 
@@ -41,6 +41,8 @@ starwars %>%
 # 3. GROUP_BY + SUMMARIZE: the tidyverse bread and butter
 # ------------------------------------------------------------
 
+library(tidylog) # QA tool - Explains data transformations in english
+
 starwars %>%
   filter(!is.na(species)) %>%
   group_by(species) %>%
@@ -71,7 +73,7 @@ sw_no_jabba <- sw_clean %>% filter(name != "Jabba Desilijic Tiure")
 cor(sw_no_jabba$height, sw_no_jabba$mass)
 
 # ------------------------------------------------------------
-# 5. VISUALIZE IT
+# 5. VISUALISE IT
 # ------------------------------------------------------------
 
 ggplot(sw_clean, aes(x = height, y = mass)) +
