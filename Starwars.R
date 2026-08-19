@@ -1,19 +1,17 @@
-library(tidyverse)
-
 # ============================================================
 # L&D CODE-ALONG: Data Science with Star Wars 🚀
 # tidyverse edition — dplyr::starwars is built in, no download needed
 # ============================================================
-
-library(tidyverse)
-library(broom)     # tidy model output
-# install.packages("ggrepel") if you don't have it — nice for labeling points
-library(ggrepel)
+pacman::p_load(
+  tidyverse, # includes data wrangling package and plotting package 
+  broom, # tidymodels package
+  ggrepel #labelling plots
+  )
 
 # ------------------------------------------------------------
 # 1. MEET THE DATA
 # ------------------------------------------------------------
-starwars
+starwars # displays the dataset in your console
 
 glimpse(starwars)
 # Notice: films, vehicles, starships are LIST-COLUMNS (each cell holds a vector).
@@ -99,7 +97,7 @@ ggplot(sw_no_jabba, aes(x = height, y = mass)) +
   theme_minimal()
 
 # ------------------------------------------------------------
-# 6. LINEAR MODEL + TIDY OUTPUT (broom)
+# 6. SUPERVISED MACHINE LEARNING LINEAR MODEL + TIDY OUTPUT (broom)
 # ------------------------------------------------------------
 
 model <- lm(mass ~ height, data = sw_no_jabba)
@@ -136,7 +134,7 @@ starwars %>%
   rename(n_characters = n)
 
 # ------------------------------------------------------------
-# 8. THE "COOL STATSY" FINALE: K-MEANS CLUSTERING
+# 8. UNSUPERVISED MACHINE LEARNING K-MEANS CLUSTERING
 # Can unsupervised learning rediscover species-like groupings
 # just from height, mass, and birth_year?
 # ------------------------------------------------------------
